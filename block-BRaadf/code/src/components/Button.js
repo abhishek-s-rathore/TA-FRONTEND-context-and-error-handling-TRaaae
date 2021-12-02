@@ -8,5 +8,6 @@ export default function SwitchButton({ isDarkMode, changeMode }) {
     >
       {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
     </button>
+    
   );
 }

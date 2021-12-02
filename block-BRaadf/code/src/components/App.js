@@ -1,5 +1,6 @@
 import React from "react";
 import SwitchButton from "./Button";
+import { ModeContext } from "./context/ModeContext";
 import Header from "./Header";
 import Main from "./Main";
 
@@ -12,14 +13,18 @@ class App extends React.Component {
       return { isDarkMode: !state.isDarkMode };
     });
   };
+
   render() {
     let { isDarkMode } = this.state;
+
     return (
+      <ModeContext.Provider value={this.state}>
       <div className={`bg ${isDarkMode ? "bg-dark" : "bg-light"}`}>
-        <Header isDarkMode={isDarkMode} />
-        <Main isDarkMode={isDarkMode} />
+        <Header />
+        <Main />
         <SwitchButton isDarkMode={isDarkMode} changeMode={this.changeMode} />
       </div>
+      </ModeContext.Provider>
     );
   }
 }
